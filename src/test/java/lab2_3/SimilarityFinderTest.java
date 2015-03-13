@@ -1,0 +1,40 @@
+package lab2_3;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import edu.iis.mto.search.dublers.SequenceSearcherDubler;
+import edu.iis.mto.similarity.SimilarityFinder;
+
+public class SimilarityFinderTest {
+
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+	}
+
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+	}
+
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void testResult_shouldBe3_5() {
+		SequenceSearcherDubler searcher = new SequenceSearcherDubler();
+		SimilarityFinder finder = new SimilarityFinder(searcher);
+		double res = finder.calculateJackardSimilarity(searcher.sets[0], searcher.sets[1]);
+		assertEquals(res, 3 / 5d, 1e-5);
+	}
+
+}
