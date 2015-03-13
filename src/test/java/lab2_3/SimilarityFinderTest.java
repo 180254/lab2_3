@@ -1,6 +1,8 @@
 package lab2_3;
 
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -30,11 +32,21 @@ public class SimilarityFinderTest {
 	}
 
 	@Test
-	public void testResult_shouldBe3_5() {
+	public void testResult_shouldBe3_8() {
 		SequenceSearcherDubler searcher = new SequenceSearcherDubler();
 		SimilarityFinder finder = new SimilarityFinder(searcher);
 		double res = finder.calculateJackardSimilarity(searcher.sets[0], searcher.sets[1]);
-		assertEquals(res, 3 / 5d, 1e-5);
+		assertEquals(res, 3 / 8d, 1e-5);
+	}
+
+	@Test
+	public void testResult_checkIfsearchIsInvokedProperTimes() {
+		SequenceSearcherDubler searcher = new SequenceSearcherDubler();
+		SimilarityFinder finder = new SimilarityFinder(searcher);
+		finder.calculateJackardSimilarity(searcher.sets[0], searcher.sets[1]);
+		
+		int expectedInvokeCounter = searcher.sets[0].length;
+		assertThat(searcher.getSearchInvokeCounter(), is(expectedInvokeCounter));
 	}
 
 }
