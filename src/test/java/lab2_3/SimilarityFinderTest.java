@@ -49,5 +49,12 @@ public class SimilarityFinderTest {
 		int expectedInvokeCounter = searcher.sets[0].length;
 		assertThat(searcher.getSearchInvokeCounter(), is(expectedInvokeCounter));
 	}
+	
+	@Test
+	public void testResult_checkCommutativeProperty() {
+		double res1 = finder.calculateJackardSimilarity(searcher.sets[0], searcher.sets[1]);
+		double res2 = finder.calculateJackardSimilarity(searcher.sets[1], searcher.sets[0]);
+		assertThat(res1, is(res2));
+	}
 
 }
