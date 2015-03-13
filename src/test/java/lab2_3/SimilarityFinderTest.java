@@ -43,7 +43,7 @@ public class SimilarityFinderTest {
 	}
 
 	@Test
-	public void testResult_checkIfsearchIsInvokedProperTimes() {
+	public void testState_checkIfsearchIsInvokedProperTimes() {
 		finder.calculateJackardSimilarity(searcher.sets[0], searcher.sets[1]);
 
 		int expectedInvokeCounter = searcher.sets[0].length;
