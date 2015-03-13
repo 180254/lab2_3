@@ -7,14 +7,14 @@ public class SequenceSearcherDubler implements SequenceSearcher {
 
 	public final int[][] sets = new int[][] {
 			new int[] { 1, 2, 3, 4 },
-			new int[] { 1, 2, 5, 4, 8, 12, -4}
+			new int[] { 1, 2, 5, 4, 8, 12, -4 }
 	};
-	
+
 	private int searchInvokeCounter = 0;
 
 	public SearchResult search(int key, int[] seq) {
 		searchInvokeCounter++;
-		
+
 		if (seq == sets[0]) {
 			if (key == 1 || key == 2 || key == 3 || key == 4) {
 				return new SearchResultDubler(true);
@@ -23,7 +23,8 @@ public class SequenceSearcherDubler implements SequenceSearcher {
 			}
 
 		} else {
-			if (key == 1 || key == 2 || key == 5 || key == 4) {
+			if (key == 1 || key == 2 || key == 5 || key == 4 ||
+					key == 8 || key == 12 || key == -4) {
 				return new SearchResultDubler(true);
 			} else {
 				return new SearchResultDubler(false);
