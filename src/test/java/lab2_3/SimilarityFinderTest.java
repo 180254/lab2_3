@@ -49,25 +49,30 @@ public class SimilarityFinderTest {
 		int expectedInvokeCounter = searcher.sets[0].length;
 		assertThat(searcher.getSearchInvokeCounter(), is(expectedInvokeCounter));
 	}
-	
+
 	@Test
 	public void testResult_checkCommutativeProperty() {
 		double res1 = finder.calculateJackardSimilarity(searcher.sets[0], searcher.sets[1]);
 		double res2 = finder.calculateJackardSimilarity(searcher.sets[1], searcher.sets[0]);
 		assertThat(res1, is(res2));
 	}
-	
+
 	@Test
 	public void testResult_emptyIntersect_shoultBe0() {
 		double res = finder.calculateJackardSimilarity(searcher.sets[0], searcher.sets[2]);
 		assertEquals(res, 0, 1e-5);
 	}
-	
+
 	@Test
 	public void testResult_bothEmpty_shoultBe1() {
 		double res = finder.calculateJackardSimilarity(searcher.sets[2], searcher.sets[3]);
 		assertEquals(res, 1, 1e-5);
 	}
 
+	@Test
+	public void testResult_sameSetsButWithDiffrentElementOrder_shoultBe1() {
+		double res = finder.calculateJackardSimilarity(searcher.sets[0], searcher.sets[4]);
+		assertEquals(res, 1, 1e-5);
+	}
 
 }
