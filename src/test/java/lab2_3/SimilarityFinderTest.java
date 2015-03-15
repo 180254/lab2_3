@@ -43,14 +43,6 @@ public class SimilarityFinderTest {
 	}
 
 	@Test
-	public void testState_checkIfsearchIsInvokedProperTimes() {
-		finder.calculateJackardSimilarity(searcher.sets[0], searcher.sets[1]);
-
-		int expectedInvokeCounter = searcher.sets[0].length;
-		assertThat(searcher.getSearchInvokeCounter(), is(expectedInvokeCounter));
-	}
-
-	@Test
 	public void testResult_checkCommutativeProperty() {
 		double res1 = finder.calculateJackardSimilarity(searcher.sets[0], searcher.sets[1]);
 		double res2 = finder.calculateJackardSimilarity(searcher.sets[1], searcher.sets[0]);
@@ -73,6 +65,14 @@ public class SimilarityFinderTest {
 	public void testResult_sameSetsButWithDiffrentElementOrder_shoultBe1() {
 		double res = finder.calculateJackardSimilarity(searcher.sets[0], searcher.sets[4]);
 		assertEquals(res, 1, 1e-5);
+	}
+
+	@Test
+	public void testState_checkIfsearchIsInvokedProperTimes() {
+		finder.calculateJackardSimilarity(searcher.sets[0], searcher.sets[1]);
+
+		int expectedInvokeCounter = searcher.sets[0].length;
+		assertThat(searcher.getSearchInvokeCounter(), is(expectedInvokeCounter));
 	}
 
 }
