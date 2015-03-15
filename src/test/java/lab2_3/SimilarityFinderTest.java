@@ -62,5 +62,12 @@ public class SimilarityFinderTest {
 		double res = finder.calculateJackardSimilarity(searcher.sets[0], searcher.sets[2]);
 		assertEquals(res, 0, 1e-5);
 	}
+	
+	@Test
+	public void testResult_bothEmpty_shoultBe1() {
+		double res = finder.calculateJackardSimilarity(searcher.sets[2], searcher.sets[3]);
+		assertEquals(res, 1, 1e-5);
+	}
+
 
 }

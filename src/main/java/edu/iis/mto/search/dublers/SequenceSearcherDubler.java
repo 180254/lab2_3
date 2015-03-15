@@ -8,6 +8,7 @@ public class SequenceSearcherDubler implements SequenceSearcher {
 	public final int[][] sets = new int[][] {
 			new int[] { 1, 2, 3, 4 },
 			new int[] { 1, 2, 5, 4, 8, 12, -4 },
+			new int[] {},
 			new int[] {}
 	};
 
