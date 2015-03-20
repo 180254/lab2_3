@@ -1,4 +1,4 @@
-package lab2_3;
+package edu.iis.mto.similarity;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
@@ -10,12 +10,12 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import edu.iis.mto.search.dublers.SequenceSearcherDubler;
+import edu.iis.mto.search.dublers.SequenceSearcherMockStubDubler;
 import edu.iis.mto.similarity.SimilarityFinder;
 
 public class SimilarityFinderTest {
 
-	SequenceSearcherDubler searcher;
+	SequenceSearcherMockStubDubler searcher;
 	SimilarityFinder finder;
 
 	@BeforeClass
@@ -28,7 +28,7 @@ public class SimilarityFinderTest {
 
 	@Before
 	public void setUp() throws Exception {
-		searcher = new SequenceSearcherDubler();
+		searcher = new SequenceSearcherMockStubDubler();
 		finder = new SimilarityFinder(searcher);
 	}
 

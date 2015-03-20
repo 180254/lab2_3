@@ -3,7 +3,7 @@ package edu.iis.mto.search.dublers;
 import edu.iis.mto.search.SearchResult;
 import edu.iis.mto.search.SequenceSearcher;
 
-public class SequenceSearcherDubler implements SequenceSearcher {
+public class SequenceSearcherMockStubDubler implements SequenceSearcher {
 
 	public final int[][] sets = new int[][] {
 			new int[] { 1, 2, 3, 4 },
@@ -20,21 +20,21 @@ public class SequenceSearcherDubler implements SequenceSearcher {
 
 		if (seq == sets[0] || seq == sets[4]) {
 			if (key == 1 || key == 2 || key == 3 || key == 4) {
-				return new SearchResultDubler(true);
+				return new SearchResultFakeDubler(true);
 			} else {
-				return new SearchResultDubler(false);
+				return new SearchResultFakeDubler(false);
 			}
 
 		} else if (seq == sets[1]) {
 			if (key == 1 || key == 2 || key == 5 || key == 4 ||
 					key == 8 || key == 12 || key == -4) {
-				return new SearchResultDubler(true);
+				return new SearchResultFakeDubler(true);
 			} else {
-				return new SearchResultDubler(false);
+				return new SearchResultFakeDubler(false);
 
 			}
 		} else {
-				return new SearchResultDubler(false);
+				return new SearchResultFakeDubler(false);
 		}
 	}
 
